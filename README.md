@@ -1,6 +1,6 @@
 # Timing Diagram Generator
 
-A browser-based tool for **drawing and simulating digital timing diagrams**, designed for **education, teaching, and research**.
+A browser-based tool for **drawing and simulating digital timing diagrams**, designed for **CSE260: Digital Logic Design**.
 
 ---
 
@@ -42,13 +42,15 @@ This mode is useful for:
 8
 ```
 
-#### Manually Entered Waveforms
+#### Set the clock's starting edge
 
+From the drop down of **Clock starts from** select either **Negative(0)** or **Postive(1)**
+
+#### Set the input variable names in Signal text box
 ```text
-A : 01010101
-B : 00110011
-C : 00001111
+T_A, Y, Z, K_A, A, T_B, B, B', C
 ```
+If you want T<Sub>A then use _ in between them T_A
 
 Each signal is **independent**.  
 No signal affects another.

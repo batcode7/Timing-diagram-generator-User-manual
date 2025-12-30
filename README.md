@@ -1,6 +1,6 @@
 # Timing Diagram Generator – Examples & Usage
 
-This document demonstrates how to use the **Timing Diagram Generator** in both **Editor mode** and **Simulation mode**, with concrete examples and a detailed explanation of how the system works internally.
+This document demonstrates how to use the **Timing Diagram Generator** in both **Editor mode** and **Simulation mode**, with examples and a detailed explanation of how the system works internally.
 
 ---
 

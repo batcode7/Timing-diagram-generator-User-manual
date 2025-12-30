@@ -34,12 +34,13 @@ This mode is useful for:
 
 ---
 
-### Example Setup for Editor Mode
+### Example Setup
 
+#### Time Slots
 
-### Time Slots
 ```text
-8```
+8
+```
 
 #### Set the clock's starting edge
 
@@ -118,68 +119,69 @@ EN : 00111100
 1. A clock is generated automatically
 2. On each **active clock edge**:
    - `D . EN` is evaluated using the **previous cycle**
-   - The result is stored as the new `Q`
-3. Between edges, `Q` remains unchanged
+      - The result is stored as the new `Q`
+      3. Between edges, `Q` remains unchanged
 
----
+      ---
 
-## Supported Flip-Flops
+      ## Supported Flip-Flops
 
-| Function | Description |
-|--------|------------|
-| `D(x)` | D Flip-Flop |
-| `T(x)` | T Flip-Flop |
-| `SR(S,R)` | SR Flip-Flop |
-| `JK(J,K)` | JK Flip-Flop |
+      | Function | Description |
+      |--------|------------|
+      | `D(x)` | D Flip-Flop |
+      | `T(x)` | T Flip-Flop |
+      | `SR(S,R)` | SR Flip-Flop |
+      | `JK(J,K)` | JK Flip-Flop |
 
----
+      ---
 
-## Logic Expression Syntax
+      ## Logic Expression Syntax
 
-### Operators
+      ### Operators
 
-| Symbol | Meaning |
-|------|--------|
-| `+` | OR |
-| `.` | AND |
-| `'` | NOT (postfix) |
-| `⊕` | XOR |
-| `⊙` | XNOR |
+      | Symbol | Meaning |
+      |------|--------|
+      | `+` | OR |
+      | `.` | AND |
+      | `'` | NOT (postfix) |
+      | `⊕` | XOR |
+      | `⊙` | XNOR |
 
-### Examples
+      ### Examples
 
-```text
-A + B
-A . B'
-(A ⊕ B)'
-```
+      ```text
+      A + B
+      A . B'
+      (A ⊕ B)'
+      ```
 
----
+      ---
 
-## Clock Configuration
+      ## Clock Configuration
 
-- Clock is generated from:
-  - Number of cycles
-  - Starting level (0 or 1)
-- In Simulation mode, you can select:
-  - Rising edge (↑)
-  - Falling edge (↓)
+      - Clock is generated from:
+        - Number of cycles
+          - Starting level (0 or 1)
+          - In Simulation mode, you can select:
+            - Rising edge (↑)
+              - Falling edge (↓)
 
-Active clock edges are **visually highlighted** in the diagram.
+              Active clock edges are **visually highlighted** in the diagram.
 
----
+              ---
 
-## Exporting
+              ## Exporting
 
-You can export diagrams as:
-- PNG
-- PDF
-- Clipboard image
+              You can export diagrams as:
+              - PNG
+              - PDF
+              - Clipboard image
 
----
+              ---
 
-## License & Credit
+              ## License & Credit
 
-© 2025 Partha Bhoumik  
-Built for educational and research purposes  
-Contact: parthabhoumik4@gmail.com
+              © 2025 Partha Bhoumik  
+              Built for educational and research purposes  
+              Contact: parthabhoumik4@gmail.com
+              

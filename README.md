@@ -38,7 +38,8 @@ This mode is useful for:
 
 
 ### Time Slots
-```8```
+```text
+8```
 
 #### Set the clock's starting edge
 

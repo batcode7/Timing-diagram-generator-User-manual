@@ -33,11 +33,12 @@ This is useful for:
 
 ### Example Setup
 
-#### Signals
-A, B, C
 
-shell
-Copy code
+#### Time Slots
+How many time slots do you want in your simulation
+
+```text
+Time Slots: 8
 
 #### Manually Entered Waveforms
 A : 01010101

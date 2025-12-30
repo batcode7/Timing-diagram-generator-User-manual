@@ -34,12 +34,13 @@ This mode is useful for:
 
 ---
 
-### Example Setup
+### Example Setup for Editor Mode
 
-#### Time Slots
 
-```text
-8
+### ✅ Replace with
+```md
+**Time Slots:** `8`
+
 ```
 
 #### Set the clock's starting edge

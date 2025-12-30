@@ -1,54 +1,57 @@
-# Timing Diagram Generator – Examples & Usage
+# Timing Diagram Generator
 
-This document demonstrates how to use the **Timing Diagram Generator** in both **Editor mode** and **Simulation mode**, with examples and a detailed explanation of how the system works internally.
-
----
-
-## 1. Overview
-
-The Timing Diagram Generator is a browser-based tool for:
-
-- Drawing timing diagrams manually
-- Simulating combinational and sequential logic
-- Visualizing clocked behavior using flip-flops
-- Exporting diagrams for documentation or teaching
-
-The application has **two distinct modes**:
-- **Editor Mode** – manual waveform drawing
-- **Simulation Mode** – logic-driven, clocked simulation
+A browser-based tool for **drawing and simulating digital timing diagrams**, designed for **education, teaching, and research**.
 
 ---
 
-## 2. Editor Mode Example (Manual Timing Diagram)
+## Overview
+
+The Timing Diagram Generator allows you to:
+
+- Draw timing diagrams manually
+- Simulate combinational and sequential logic
+- Visualize clocked behavior using flip-flops
+- Export diagrams as PNG, PDF, or clipboard images
+
+The application operates in **two distinct modes**:
+
+- **Editor Mode** – manual waveform editing  
+- **Simulation Mode** – logic-driven, clocked simulation  
+
+---
+
+## Editor Mode (Manual Timing Diagram)
 
 ### Purpose
-Editor mode is used when you want **full manual control** over signal waveforms, without applying any logic or simulation rules.
 
-This is useful for:
+Editor Mode gives **full manual control** over all signal waveforms.  
+No logic evaluation or clock dependency is applied.
+
+This mode is useful for:
 - Teaching timing diagrams
 - Sketching expected signal behavior
-- Creating figures for assignments or reports
+- Creating figures for reports or assignments
 
 ---
 
 ### Example Setup
 
-
 #### Time Slots
-How many time slots do you want in your simulation
 
 ```text
-Time Slots: 8
+8
+```
 
 #### Manually Entered Waveforms
+
+```text
 A : 01010101
 B : 00110011
 C : 00001111
+```
 
-yaml
-Copy code
-
-Each signal is independent. No signal affects another.
+Each signal is **independent**.  
+No signal affects another.
 
 ---
 
@@ -56,23 +59,24 @@ Each signal is independent. No signal affects another.
 
 - Each signal row is editable
 - Clicking a cell cycles through:
-unknown → 1 → 0 → unknown
 
-yaml
-Copy code
+```text
+unknown → 1 → 0 → unknown
+```
+
 - There is **no logic evaluation**
 - There is **no clock dependency**
-- Signals are drawn exactly as entered
+- Signals are drawn **exactly as entered**
 
-Editor mode behaves like a **pure waveform editor**.
+Editor Mode behaves like a **pure waveform editor**.
 
 ---
 
-## 3. Simulation Mode Example (Sequential Logic)
+## Simulation Mode (Sequential Logic)
 
 ### Purpose
-Simulation mode evaluates **Boolean expressions and flip-flops** using a generated clock.
 
+Simulation Mode evaluates **Boolean expressions and flip-flops** using an automatically generated clock.  
 This mode reflects **real digital hardware behavior**.
 
 ---
@@ -80,36 +84,31 @@ This mode reflects **real digital hardware behavior**.
 ### Example: D Flip-Flop with Enable
 
 #### Input Signals
-D, EN
 
-shell
-Copy code
+```text
+D, EN
+```
 
 #### Output Signal
-Q
 
-shell
-Copy code
+```text
+Q
+```
 
 #### Logic Expression
+
+```text
 Q = D(D . EN)
-
-yaml
-Copy code
-
-This represents:
-- A **D flip-flop**
-- Input = `D AND EN`
-- Output updates on the selected clock edge
+```
 
 ---
 
 ### Input Waveforms
-D : 01011001
-EN : 00111100
 
-yaml
-Copy code
+```text
+D  : 01011001
+EN : 00111100
+```
 
 ---
 
@@ -121,11 +120,9 @@ Copy code
    - The result is stored as the new `Q`
 3. Between edges, `Q` remains unchanged
 
-This matches real flip-flop timing semantics.
-
 ---
 
-## 4. Supported Flip-Flops
+## Supported Flip-Flops
 
 | Function | Description |
 |--------|------------|
@@ -134,14 +131,9 @@ This matches real flip-flop timing semantics.
 | `SR(S,R)` | SR Flip-Flop |
 | `JK(J,K)` | JK Flip-Flop |
 
-### Important Rules
-- Flip-flops are **edge-triggered**
-- Inputs are sampled **before** the clock edge
-- Outputs update **after** the edge
-
 ---
 
-## 5. Logic Expression Syntax
+## Logic Expression Syntax
 
 ### Operators
 
@@ -154,87 +146,39 @@ This matches real flip-flop timing semantics.
 | `⊙` | XNOR |
 
 ### Examples
+
+```text
 A + B
 A . B'
 (A ⊕ B)'
-
-yaml
-Copy code
+```
 
 ---
 
-### Keyboard Shortcuts
+## Clock Configuration
 
-| Shortcut | Inserts |
-|--------|---------|
-| Shift + X | ⊕ (XOR) |
-| Shift + N | ⊙ (XNOR) |
-
-These shortcuts work inside logic input fields.
-
----
-
-## 6. Clock Configuration
-
-- Clock is generated based on:
+- Clock is generated from:
   - Number of cycles
   - Starting level (0 or 1)
 - In Simulation mode, you can select:
   - Rising edge (↑)
   - Falling edge (↓)
 
-The active clock edges are **visually highlighted** in the diagram.
+Active clock edges are **visually highlighted** in the diagram.
 
 ---
 
-## 7. Output Editing Rules
+## Exporting
 
-| Signal Type | Editable | Behavior |
-|-----------|--------|---------|
-| Input | Yes | Fully user-defined |
-| Combinational Output | No | Evaluated every cycle |
-| Flip-Flop Output | First cell only | Edge-triggered |
-
-Manual initialization is allowed **only at cycle 0** for flip-flop outputs.
-
----
-
-## 8. Exporting Diagrams
-
-You can export the timing diagram as:
+You can export diagrams as:
 - PNG
 - PDF
 - Clipboard image
 
-Exports preserve:
-- Clock edge markers
-- Subscripts (e.g., A₁)
-- Prime notation (e.g., B′)
-- Grid alignment
-
 ---
 
-## 9. When to Use Each Mode
+## License & Credit
 
-### Use Editor Mode when:
-- Drawing timing diagrams manually
-- Teaching introductory concepts
-- Logic behavior is not required
-
-### Use Simulation Mode when:
-- Demonstrating sequential circuits
-- Teaching flip-flops and registers
-- Validating logic expressions
-- Showing clock-driven behavior
-
----
-
-## 10. Final Notes
-
-This simulator follows **hardware-accurate semantics**:
-
-- Flip-flops sample inputs **before** the clock edge
-- Outputs update **after** the edge
-- Combinational logic settles using fixed-point evaluation
-
-The tool is suitable for **academic, instructional, and research** use.
+© 2025 Partha Bhoumik  
+Built for educational and research purposes  
+Contact: parthabhoumik4@gmail.com
